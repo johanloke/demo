@@ -30,6 +30,4 @@ steps:
     codeCoverageToolOption: 'Cobertura'
     codeCoverageClassFilesDirectories: 'build/classes/main/'
     javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: true
     sqGradlePluginVersionChoice: 'build'
-    pmdRunAnalysis: true
