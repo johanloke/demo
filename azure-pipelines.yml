@@ -10,14 +10,26 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+# - task: Gradle@2
+#   inputs:
+#     workingDirectory: ''
+#     gradleWrapperFile: 'gradlew'
+#     gradleOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '15'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/TEST-*.xml'
+#     tasks: 'build'
 - task: Gradle@2
   inputs:
-    workingDirectory: ''
     gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '15'
-    jdkArchitectureOption: 'x64'
+    tasks: 'build'
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
+    codeCoverageToolOption: 'Cobertura'
+    codeCoverageClassFilesDirectories: 'build/classes/main/'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'build'
+    pmdRunAnalysis: true
